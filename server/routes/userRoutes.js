@@ -7,7 +7,7 @@ const {
   deleteUser,
 } = require('../controllers/usersController');
 
-router.route
+router.route('/')
   .get(getAllUsers)
   .post(createUser)
   .patch(updateUser)
