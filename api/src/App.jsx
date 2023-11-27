@@ -1,6 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Public from './components/Public'
+import Login from './components/Login'
+import DashLayout from './components/DashLayout'
+
 const App = () => {
   return (
-    <div>TechNotes</div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Public />} />
+        <Route path="/login" element={<Login />} />
+        {/* Dash start */}
+        <Route path="/dash" element={<DashLayout />}>
+
+        </Route>
+        {/* Dash end */}
+      </Route>
+    </Routes>
   )
 }
 
