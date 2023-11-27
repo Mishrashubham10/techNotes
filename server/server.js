@@ -2,11 +2,21 @@ const express = require('express')
 const dotenv = require('dotenv').config()
 const app = express()
 const path = require('path')
+const { logger } = require('./middleware/logger')
+const errorHandler = require('./middleware/errorHandler')
 const PORT = process.env.PORT || 3500
 const root = require('./routes/root')
+const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
+const cookieParser = require('cookie-parser')
 
 // Middleware
+app.use(logger)
 app.use(express.json())
+app.use(cookieParser())
+
+// Cors
+app.use(cors(corsOptions))
 
 // Serving static folders or files
 app.use('/', express.static(path.join(__dirname, 'public')))
@@ -23,5 +33,8 @@ app.all('*', (req, res) => {
         res.type('txt').send('404 Not Found')
     }
 })
+
+// Custom Middleware
+app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
