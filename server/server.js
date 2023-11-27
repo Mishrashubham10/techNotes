@@ -10,6 +10,7 @@ const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
+const userRoutes = require('./routes/userRoutes')
 const { logEvents } = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 
@@ -28,7 +29,10 @@ app.use(cors(corsOptions))
 
 // Serving static folders or files
 app.use('/', express.static(path.join(__dirname, 'public')))
+
+// Routes
 app.use('/', root)
+app.use('/users', userRoutes)
 
 // Handling error routes
 app.all('*', (req, res) => {
