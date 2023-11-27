@@ -33,6 +33,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 // Routes
 app.use('/', root)
 app.use('/users', userRoutes)
+app.use('/notes', noteRoutes)
 
 // Handling error routes
 app.all('*', (req, res) => {
