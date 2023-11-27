@@ -11,6 +11,7 @@ const corsOptions = require('./config/corsOptions')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/userRoutes')
+const notesRoute = require('./routes/noteRoutes')
 const { logEvents } = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 
@@ -33,7 +34,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 // Routes
 app.use('/', root)
 app.use('/users', userRoutes)
-app.use('/notes', noteRoutes)
+app.use('/notes', notesRoute)
 
 // Handling error routes
 app.all('*', (req, res) => {
