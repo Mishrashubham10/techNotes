@@ -10,6 +10,7 @@ import EditUser from './features/users/EditUser';
 import NewUserForm from './features/users/NewUserForm';
 import NewNote from './features/notes/NewNote';
 import EditNote from './features/notes/EditNote';
+import Prefetch from './features/auth/Prefetch';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route index element={<Public />} />
         <Route path="/login" element={<Login />} />
         {/* Dash start */}
+        <Route element={<Prefetch />}>
         <Route path="/dash" element={<DashLayout />}>
           <Route index element={<Welcome />} />
           {/* User route start */}
@@ -36,6 +38,7 @@ const App = () => {
           {/* Note route end */}
         </Route>
         {/* Dash end */}
+        </Route>
       </Route>
     </Routes>
   );

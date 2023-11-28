@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-extra-boolean-cast */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
@@ -111,11 +112,11 @@ const EditUserForm = ({ user }) => {
                 <div className="form__title-row">
                     <h2>Edit User</h2>
                     <div className="form__action-buttons">
-                        <button
+                    <button
                             className="icon-button"
                             title="Save"
                             onClick={onSaveUserClicked}
-                            disabled={!canSave}
+                            // disabled={!canSave}
                         >
                             <FontAwesomeIcon icon={faSave} />
                         </button>
