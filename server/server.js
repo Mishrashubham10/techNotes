@@ -14,6 +14,7 @@ const userRoutes = require('./routes/userRoutes')
 const notesRoute = require('./routes/noteRoutes')
 const { logEvents } = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
+const authRoutes = require('./routes/authRoutes')
 
 console.log(process.env.NODE_ENV)
 
@@ -33,6 +34,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 // Routes
 app.use('/', root)
+app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
 app.use('/notes', notesRoute)
 
