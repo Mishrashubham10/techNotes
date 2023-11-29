@@ -1,10 +1,10 @@
 const dotenv = require('dotenv').config()
+require('express-async-errors')
 const express = require('express')
 const app = express()
 const path = require('path')
 const { logger } = require('./middleware/logger')
 const errorHandler = require('./middleware/errorHandler')
-const PORT = process.env.PORT || 3500
 const root = require('./routes/root')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
@@ -15,6 +15,8 @@ const notesRoute = require('./routes/noteRoutes')
 const { logEvents } = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 const authRoutes = require('./routes/authRoutes')
+
+const PORT = process.env.PORT || 3500
 
 console.log(process.env.NODE_ENV)
 

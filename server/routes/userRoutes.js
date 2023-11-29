@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
   getAllUsers,
-  createUser,
+  createNewUser,
   updateUser,
   deleteUser,
 } = require('../controllers/usersController');
@@ -12,7 +12,7 @@ router.use(verifyJWT)
 
 router.route('/')
   .get(getAllUsers)
-  .post(createUser)
+  .post(createNewUser)
   .patch(updateUser)
   .delete(deleteUser);
 
